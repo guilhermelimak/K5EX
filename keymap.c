@@ -12,6 +12,8 @@ enum custom_keycodes
 {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   M_ARROW_FUN,
+  M_HIDEOUT,
+  M_OK,
   M_SELECTCOPY,
   EPRM,
   RGB_SLD,
@@ -142,6 +144,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     if (record->event.pressed)
     {
       SEND_STRING("=>");
+    }
+    break;
+
+  case M_OK:
+    if (record->event.pressed)
+    {
+      SEND_STRING(":+1:");
+    }
+    break;
+
+  case M_HIDEOUT:
+    if (record->event.pressed)
+    {
+      SEND_STRING(SS_TAP(X_ENTER) "/hideout" SS_TAP(X_ENTER));
     }
     break;
 
